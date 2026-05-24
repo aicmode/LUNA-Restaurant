@@ -32,6 +32,26 @@ img {
   display: block;
 }
 
+@keyframes heroReveal {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes quietZoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.025);
+  }
+}
+
 button,
 a {
   font: inherit;
@@ -77,15 +97,34 @@ a {
 .site-nav a,
 .footer-links a,
 .secondary-link {
+  position: relative;
   color: var(--muted);
   text-decoration: none;
   transition: color 0.25s ease;
+}
+
+.site-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.35rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s ease;
 }
 
 .site-nav a:hover,
 .footer-links a:hover,
 .secondary-link:hover {
   color: var(--text);
+}
+
+.site-nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
 .reserve-button {
@@ -97,6 +136,23 @@ a {
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 0.02em;
+  text-decoration: none;
+  transition: background 0.45s ease, border-color 0.45s ease, color 0.45s ease, box-shadow 0.45s ease, transform 0.45s ease;
+  will-change: transform;
+}
+
+.reserve-button:hover {
+  background: linear-gradient(135deg, rgba(224, 195, 139, 0.98), rgba(201, 166, 107, 0.98));
+  color: #070504;
+  box-shadow: 0 14px 36px rgba(201, 166, 107, 0.18);
+  transform: translateY(-2px);
+}
+
+.reserve-button:focus-visible,
+.secondary-link:focus-visible,
+.site-nav a:focus-visible {
+  outline: 1px solid rgba(201, 166, 107, 0.75);
+  outline-offset: 4px;
 }
 
 .menu-toggle {
@@ -128,10 +184,36 @@ a {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  animation: quietZoom 9s ease-out both;
+  will-change: transform;
 }
 
 .hero-copy {
   max-width: 620px;
+}
+
+.hero-copy .eyebrow,
+.hero-copy h1,
+.hero-copy p,
+.hero-actions {
+  opacity: 0;
+  animation: heroReveal 1.15s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.hero-copy .eyebrow {
+  animation-delay: 0.18s;
+}
+
+.hero-copy h1 {
+  animation-delay: 0.34s;
+}
+
+.hero-copy p {
+  animation-delay: 0.5s;
+}
+
+.hero-actions {
+  animation-delay: 0.68s;
 }
 
 .eyebrow,
@@ -176,10 +258,30 @@ a {
 .secondary-link {
   color: var(--text);
   text-decoration: underline;
+  text-underline-offset: 0.32em;
+  transition: color 0.35s ease, opacity 0.35s ease, transform 0.35s ease;
+}
+
+.secondary-link:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
 }
 
 .section {
   padding: 6rem 0;
+}
+
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s ease, transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform;
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .section-header {
@@ -227,6 +329,8 @@ a {
   object-fit: cover;
   border-radius: 24px;
   margin-bottom: 1.5rem;
+  transition: transform 0.75s ease;
+  will-change: transform;
 }
 
 .menu-grid {
@@ -241,6 +345,8 @@ a {
   object-fit: cover;
   border-radius: 24px;
   margin-bottom: 1.5rem;
+  transition: transform 0.75s ease;
+  will-change: transform;
 }
 
 .section.chef-section {
@@ -253,6 +359,8 @@ a {
   object-fit: cover;
   width: 100%;
   box-shadow: var(--shadow);
+  transition: transform 0.8s ease;
+  will-change: transform;
 }
 
 .gallery-grid {
@@ -273,6 +381,15 @@ a {
   height: 100%;
   width: 100%;
   object-fit: cover;
+  transition: transform 0.8s ease;
+  will-change: transform;
+}
+
+.feature-card:hover img,
+.menu-card:hover img,
+.chef-image:hover img,
+.gallery-card:hover img {
+  transform: scale(1.03);
 }
 
 .experience-grid {
@@ -397,5 +514,35 @@ a {
   .secondary-link {
     width: 100%;
     text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .hero-copy .eyebrow,
+  .hero-copy h1,
+  .hero-copy p,
+  .hero-actions,
+  .reveal-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero-image img,
+  .feature-card:hover img,
+  .menu-card:hover img,
+  .chef-image:hover img,
+  .gallery-card:hover img,
+  .reserve-button:hover,
+  .secondary-link:hover {
+    transform: none;
   }
 }

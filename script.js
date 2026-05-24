@@ -22,3 +22,42 @@ window.addEventListener('resize', () => {
     navLinks.style.display = 'flex';
   }
 });
+
+const motionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+const revealTargets = document.querySelectorAll(
+  '.section, .section-header, .section-copy, .feature-card, .menu-card, .chef-image, .gallery-card, .experience-card, .testimonial-card, .reservation-panel, .location-details'
+);
+
+revealTargets.forEach((element, index) => {
+  element.classList.add('reveal-on-scroll');
+  const groupIndex = index % 4;
+  element.style.setProperty('--reveal-delay', `${groupIndex * 90}ms`);
+});
+
+const showRevealTargets = () => {
+  revealTargets.forEach((element) => {
+    element.classList.add('is-visible');
+  });
+};
+
+if (motionQuery.matches || !('IntersectionObserver' in window)) {
+  showRevealTargets();
+} else {
+  const revealObserver = new IntersectionObserver(
+    (entries, observer) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    },
+    {
+      threshold: 0.14,
+      rootMargin: '0px 0px -8% 0px',
+    }
+  );
+
+  revealTargets.forEach((element) => {
+    revealObserver.observe(element);
+  });
+}
