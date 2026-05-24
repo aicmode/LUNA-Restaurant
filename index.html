@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUNA Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero">LUNA Restaurant</a>
+      <nav class="site-nav" aria-label="メインナビゲーション">
+        <a href="#about">About</a>
+        <a href="#menu">Menu</a>
+        <a href="#chef">Chef</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#reservation">Reservation</a>
+        <a href="#location">Location</a>
+      </nav>
+      <button class="reserve-button header-reserve" data-scroll="#reservation">Reserve a Table</button>
+      <button class="menu-toggle" aria-label="メニューを開く">Menu</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="hero" class="hero-section">
+      <div class="hero-image">
+        <img src="images/hero.svg" alt="LUNA Restaurant の上質なダイニング" />
+      </div>
+      <div class="hero-copy container">
+        <span class="eyebrow">Modern Fine Dining</span>
+        <h1>LUNA Restaurant</h1>
+        <p>都会の中心に佇む、洗練と優雅さが交差する特別なひととき。</p>
+        <div class="hero-actions">
+          <button class="reserve-button" data-scroll="#reservation">Reserve a Table</button>
+          <a class="secondary-link" href="#about">Discover More</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about-section">
+      <div class="container split-grid">
+        <div class="section-copy">
+          <span class="section-label">About</span>
+          <h2>都会の静寂の中で味わう、選び抜かれた瞬間。</h2>
+          <p>ニューヨークの洗練された空間を思わせるインテリアと、季節の恵みを映し出す料理。LUNA Restaurant は、五感を満たすモダンファインダイニングです。</p>
+          <p>シグネチャーメニューとワインセレクションにより、特別な記念日からビジネスの接待まであらゆる時間を格別なものにします。</p>
+        </div>
+        <div class="feature-card gold-border">
+          <h3>Exclusive dining</h3>
+          <p>少人数制の洗練された席配置。静かで落ち着いた空間が、大切なひとときを美しく演出します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="menu" class="section menu-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Signature Menu</span>
+          <h2>季節を感じる4 つのコース</h2>
+        </div>
+        <div class="menu-grid">
+          <article class="menu-card">
+            <img src="images/appetizer.svg" alt="前菜の写真" />
+            <h3>Appetizer</h3>
+            <p>旬の野菜と海の幸を織り成す前菜。繊細な味のバランスをお楽しみください。</p>
+          </article>
+          <article class="menu-card">
+            <img src="images/main.svg" alt="メインディッシュの写真" />
+            <h3>Main Course</h3>
+            <p>シグネチャー肉料理または魚料理。ソースと食材のハーモニーを追求した一皿。</p>
+          </article>
+          <article class="menu-card">
+            <img src="images/dessert.svg" alt="デザートの写真" />
+            <h3>Dessert</h3>
+            <p>シェフの創造性が光るデザート。優雅な余韻を残す仕上がりです。</p>
+          </article>
+          <article class="menu-card">
+            <img src="images/wine.svg" alt="ワインの写真" />
+            <h3>Wine</h3>
+            <p>世界各国から厳選したワイン。料理とのペアリングで特別な時間を彩ります。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="chef" class="section chef-section">
+      <div class="container split-grid reverse-grid">
+        <div class="chef-image">
+          <img src="images/chef.svg" alt="シェフの写真" />
+        </div>
+        <div class="section-copy">
+          <span class="section-label">Chef's Selection</span>
+          <h2>シェフが届ける、唯一無二のディナー体験。</h2>
+          <p>エグゼクティブシェフの手によるメニューは、伝統を尊重しつつ現代的な解釈をプラス。素材の美しさを引き出すプレゼンテーションが魅力です。</p>
+          <p>お客様の好みに合わせたアレンジや、ワインとの絶妙なマリアージュもご提案します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery" class="section gallery-section">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-label">Gallery</span>
+          <h2>料理と空間が紡ぐ、ラグジュアリーな瞬間。</h2>
+        </div>
+        <div class="gallery-grid">
+          <div class="gallery-card"><img src="images/gallery1.svg" alt="料理写真" /></div>
+          <div class="gallery-card"><img src="images/gallery2.svg" alt="店内写真" /></div>
+          <div class="gallery-card"><img src="images/gallery3.svg" alt="ワインの写真" /></div>
+          <div class="gallery-card"><img src="images/gallery4.svg" alt="ラウンジの写真" /></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <span class="section-label">Dining Experience</span>
+        <h2>五感すべてを満たす贅沢なひととき。</h2>
+        <div class="experience-grid">
+          <article class="experience-card">
+            <h3>Design</h3>
+            <p>洗練されたインテリアと落ち着いた照明が、特別な時間を際立たせます。</p>
+          </article>
+          <article class="experience-card">
+            <h3>Flavor</h3>
+            <p>素材の魅力を最大限に引き出した、シンプルかつ華やかな味わい。</p>
+          </article>
+          <article class="experience-card">
+            <h3>Service</h3>
+            <p>気配りと温かみを備えたサービスで、ゆったりとした余裕をお届けします。</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="testimonials" class="section testimonials-section">
+      <div class="container">
+        <span class="section-label">Testimonials</span>
+        <h2>お客様の声</h2>
+        <div class="testimonial-grid">
+          <blockquote class="testimonial-card">
+            <p>「料理のひとつひとつが芸術的。大切な記念日に最適な空間でした。」</p>
+            <footer>— Emily T., New York</footer>
+          </blockquote>
+          <blockquote class="testimonial-card">
+            <p>「洗練されたサービスと落ち着いた雰囲気。味もビジュアルも期待以上でした。」</p>
+            <footer>— Michael S., New York</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="reservation" class="section reservation-section">
+      <div class="container reservation-panel">
+        <div>
+          <span class="section-label">Reservation</span>
+          <h2>特別な日のご予約はこちらから。</h2>
+          <p>ご利用シーンに合わせた最適な席をご用意いたします。ご希望の日時をお気軽にお問い合わせください。</p>
+        </div>
+        <div class="reservation-actions">
+          <a href="mailto:reserve@luna-restaurant.example" class="reserve-button">Email Reservation</a>
+          <a href="tel:+12125551234" class="secondary-link">Call +1 212-555-1234</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="location" class="section location-section">
+      <div class="container split-grid">
+        <div class="section-copy">
+          <span class="section-label">Location</span>
+          <h2>New York, USA</h2>
+          <p>5th Avenue の洗練されたロケーション。贅沢な時間を都会の中心で過ごせるように設計されています。</p>
+        </div>
+        <div class="location-details gold-border">
+          <h3>営業時間</h3>
+          <p>水〜日: 17:30 - 23:00</p>
+          <p>月・火: 定休</p>
+          <p>番号: +1 212-555-1234</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 LUNA Restaurant. All Rights Reserved.</p>
+      <div class="footer-links">
+        <a href="#hero">Top</a>
+        <a href="#menu">Menu</a>
+        <a href="#reservation">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
